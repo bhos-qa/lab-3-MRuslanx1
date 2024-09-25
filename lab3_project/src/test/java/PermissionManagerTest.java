@@ -17,13 +17,13 @@ public class PermissionManagerTest {
         assertEquals("Developer", permissionManager.getRoleName(PermissionLevel.DEVELOPER));
         assertEquals("User", permissionManager.getRoleName(PermissionLevel.USER));
     }
-}
+
     @Test
     public void testSetPermissionLevel() {
-        // Initially, mCurrentLevel should be USER
         permissionManager.setPermissionLevel(PermissionLevel.ADMIN);
         assertEquals("Admin", permissionManager.getRoleName(PermissionLevel.ADMIN));
 
         permissionManager.setPermissionLevel(PermissionLevel.DEVELOPER);
         assertEquals("Developer", permissionManager.getRoleName(PermissionLevel.DEVELOPER));
     }
+}

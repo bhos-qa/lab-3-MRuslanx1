@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "jacoco"
+    id("org.sonarqube") version "4.0.0.2929"
 }
 
 group 'org.example'
@@ -29,5 +30,22 @@ jacocoTestReport {
     reports {
         xml.enabled true // For SonarCloud integration
         html.enabled true // For human-readable report
+    }
+}
+
+sonarqube {
+    properties {
+        property ("sonar.projectKey", "bhos-qa_lab-3-MRuslanx1")
+        property( "sonar.organization", "bhos-qa")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property "sonar.login", "03256b52de3884219b66ef56c6a7c8b4a5c237b7" // Use a secure way to handle tokens
+        property "sonar.jacoco.reportPaths", "build/jacoco/test.exec" // Path to JaCoCo report
+        property "sonar.coverage.exclusions", "**/build/**, **/.idea/**"
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }

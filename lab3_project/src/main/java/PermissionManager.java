@@ -1,5 +1,3 @@
-package az.bhos.qa;
-
 public class PermissionManager {
     private PermissionLevel mCurrentLevel = PermissionLevel.USER;
 
